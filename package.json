@@ -8,16 +8,27 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint": "yarn lint:js"
+    "lint": "yarn lint:js",
+    "export": "nuxt export"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.5",
+    "@vue-stripe/vue-stripe": "^4.2.9",
+    "axios": "^0.24.0",
     "bootstrap": "^4.6.0",
     "bootstrap-icons-vue": "^0.7.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.9.1",
+    "express": "^4.17.2",
     "firebase": "^8.9.1",
-    "nuxt": "^2.15.3"
+    "fs": "0.0.1-security",
+    "net": "^1.0.2",
+    "netlify": "^10.1.0",
+    "nuxt": "^2.15.8",
+    "tls": "0.0.1",
+    "vue": "^2.6.14",
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
