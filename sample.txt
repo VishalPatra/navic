@@ -1,0 +1,86 @@
+<button @click.prevent="order">
+    Pay 1₹
+</button>
+
+<script>
+export default {
+  data() {
+    return {
+      payment_id: null
+    };
+  },
+  methods: {
+    order() {
+      const self = this;
+      const rzp_options = {
+        key: "rzp_test_enRiibCpGvB8WA",
+        amount: 1 * 100,
+        name: "The Bollywood Store",
+        description: "pay to enroll",
+        handler: function(response) {
+          self.$toast
+          .success(`Payment Succesful`, {
+            position: "bottom-center",
+            theme: "outline",
+            duration: 5000
+          })
+          self.$router.push('/studentgo')
+          self.payment_id = response.razorpay_payment_id;
+        },
+        
+        modal: {
+          ondismiss: function() {
+            self.$toast.error(`Payment Failed`, {
+              position: "bottom-center",
+              theme: "outline",
+              duration: 5000
+            });
+          }
+        },
+        prefill: {
+          email: "test@email.com",
+          contact: +914455667788
+        },
+        notes: {
+          name: "Customer Name",
+          item: self.product.title
+        },
+        theme: {
+          color: "#667eea"
+        }
+      };
+      const rzp1 = new Razorpay(rzp_options);
+      rzp1.open();
+      // this.$router.push("/?" + this.payment_id);
+      // this.$router.replace({ name: 'success' })
+      
+    },
+  },
+};
+</script>
+
+
+
+//////////////////////////////////////////////////////////////////
+
+
+<form action="/studentgo" method="POST">
+            <script
+              src="https://checkout.razorpay.com/v1/checkout.js"
+              data-key="rzp_test_enRiibCpGvB8WA"
+              data-amount="199000"
+              data-currency="INR"
+              data-buttontext=" Enroll Now "
+              data-buttoncolor="blue"
+              data-name="Acme Corp"
+              data-description="A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami"
+              data-prefill.name="Gaurav Kumar"
+              data-prefill.email="saikat1236@gmail.com"
+              data-prefill.phone="7085959167"
+              data-theme.color="#F37254"
+            ></script>
+            <input type="hidden" custom="Hidden Element" name="hidden" />
+</form>
+
+
+
