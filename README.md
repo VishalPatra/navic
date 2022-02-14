@@ -26,3 +26,5 @@ Admin shared
 *Firbase Doc [Firebase auth,db](https://firebase.google.com/docs)
 *Netlify Doc [Start for CI/CD config](https://docs.netlify.com/)
 *For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+*Link (https://fervent-poitras-1288ff.netlify.app/)
